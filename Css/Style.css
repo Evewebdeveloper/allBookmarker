@@ -1,0 +1,25 @@
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Pacifico&family=Poppins&display=swap');
+
+.main{
+    background-color: #f7ecde;
+}
+h1{
+margin-top: 30px;
+    font-size: 50px; 
+    font-family: 'Pacifico';
+        color: #352e28;
+}
+.bookmark-body{
+  font-family: "Righteous", cursive;
+    font-size: 25px;
+   background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+}
+#submitBtn{
+  cursor: pointer;
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #d1512d;
+  --bs-btn-border-color: #d1512d;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #bb4120;
+  --bs-btn-hover-border-color: #a03315;
+}

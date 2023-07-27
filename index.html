@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" href="images/images.jpg">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Pacifico&family=Poppins&display=swap"
+        rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="Css/bootstrap.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="Css/Style.css">
+    <title>Bookmark</title>
+</head>
+
+<body>
+    <div class="main  row vh-100">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <div class="container text-center py-2 ">
+                <h1> Bookmarker </h1>
+                <hr class="mt-5">
+                <div
+                    class="bookmark-body container w-100 p-3 py-4 mt-5 d-flex flex-column justify-content-center align-items-center gap-4">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <h2> Bookmark your favorite sites</h2>
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+            </div>
+
+            <div class="container site-name w-100 d-flex flex-column justify-content-center">
+                <label for="bookmarkname" class="pb-2 fw-semibold mt-5">
+                    <i class="fa-solid fa-book-bookmark pe-2">Site Name</i>
+                </label>
+                <input type="text" placeholder="Bookmark Name" class="form-control" id="bookmarkName">
+
+                <label for="bookmarkURL" class="pb-2 fw-semibold mt-4">
+                    <i class="fa-solid fa-link pe-2"> Site URL</i>
+                </label>
+                <input type="url" placeholder="Website URL" class="form-control" id="bookmarkURL">
+            </div>
+
+            <button id="submitBtn"  class="btn btn-submit px-5 mt-4">Submit</button>
+            <hr class="mt-5">
+            <table class="container table text-center table-striped">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Website Name</th>
+                        <th> Visit</th>
+                        <th >Delete</th>
+
+
+                    </tr>
+                </thead>
+                <tbody id="tableContent">
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
