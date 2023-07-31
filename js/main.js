@@ -4,47 +4,53 @@ var submitBtn = document.getElementById('submitBtn')
 
 var allBookmarks = []
 
+if(localStorage.getItem('bookmarks') != null)
+{
+    allBookmarks=JSON.parse(localStorage.getItem('bookmarks') );
+    displayBookmarks();
+}
+var urlRegex =   /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/g;
 
-var urlRegex=/^(https:\/\/)?(www\.)?[A-Za-z0-9_\.]{1,}\.[a-z]{3}]$/
-function urlValid(){
-    if (urlRegex.test(bookmarkURL.value)){
-return true;
-    }else{
-return false;
+function urlValid() {
+    if (urlRegex.test(bookmarkURL.value)) {
+        return true;
+    } else {
+        return false;
     }
 }
 
-var nameRegex=/^[A-Za-z_]$/
-function nameValid(){
-    if (nameRegex.test(siteName.value)){
-return true;
-    }else{
-return false;
+var nameRegex = /^[a-z]{3,8}$/
+function nameValid() {
+    if (nameRegex.test(siteName.value)) {
+        return true;
+    } else {
+        return false;
     }
 }
 // Add (creat) El Bookmarks
-if(nameValid() && urlValid()){
+submitBtn.onclick = function addBookmark() {
 
-    submitBtn.onclick= function addBookmark() {
-
-        var bookmarks = {
-            name: siteName.value,
-            url: bookmarkURL.value
-        }
+    var bookmarks = {
+        name: siteName.value,
+        url: bookmarkURL.value
+    }
+    debugger;
+    if (nameValid() && urlValid()) {
         allBookmarks.push(bookmarks)
         localStorage.setItem('bookmarks', JSON.stringify(allBookmarks))
         clearData()
         displayBookmarks()
     }
-  
+
+    else {
+        alert('Data Is Wrong')
+        // clearData()
+        // displayBookmarks()
+    }
+
 }
 
-else{
-    alert('Data Is Wrong')
-    clearData()
-    displayBookmarks()
-}
-   
+
 
 
 //  display(read) el product
@@ -85,15 +91,15 @@ function clearData() {
 
 // validation the url
 
-//     function validateWebsites() {
-//         var regex =
-//         '^([a-zA-Z]+:\\/\\/)?' + // protocol
-//         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-//         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
-//         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-//         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-//         '(\\#[-a-z\\d_]*)?$' // fragment locator
-//         'i'
-//         console.log(regex.test(bookmarkURL.value));
-//  return regex.test(bookmarkURL.value);
-//     }
+function validateWebsites() {
+    var regex =
+        '^([a-zA-Z]+:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$' // fragment locator
+    'i'
+    console.log(regex.test(bookmarkURL.value));
+    return regex.test(bookmarkURL.value);
+}
